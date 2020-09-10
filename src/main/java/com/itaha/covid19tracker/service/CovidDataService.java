@@ -2,7 +2,6 @@ package com.itaha.covid19tracker.service;
 
 
 import com.itaha.covid19tracker.model.Country;
-import com.itaha.covid19tracker.model.Global;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -14,9 +13,10 @@ public class CovidDataService {
     @Autowired
     private RestTemplate restTemplate;
 
-    public Global fetchGlobal() {
+    public Country fetchGlobal() {
         String url = "https://disease.sh/v3/covid-19/all";
-        Global global=restTemplate.getForObject(url, Global.class);
+        Country global=restTemplate.getForObject(url, Country.class);
+        global.setCountry("Global");
         return global;
     }
 

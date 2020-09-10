@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add CSS and JS to Thymeleaf</title>
+
+    <link th:href="@{https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900}" rel='stylesheet' type='text/css' />
+
+    <link th:href="@{/styles/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/styles/css/font-awesome.min.css}" rel="stylesheet" />
+    <link th:href="@{/styles/css/owl.carousel.css}" rel="stylesheet" />
+
+    <link th:href="@{/styles/css/owl.theme.css}" rel="stylesheet" />
+    <link th:href="@{/styles/css/owl.transitions.css}" rel="stylesheet" />
+    <link th:href="@{/styles/css/meanmenu/meanmenu.min.css}" rel="stylesheet" />
+    <link th:href="@{/styles/css/animate.css}" rel="stylesheet" />
+    <link th:href="@{/styles/css/bootstrap-select/bootstrap-select.css}" rel="stylesheet" />
+    <link th:href="@{/styles/css/normalize.css}" rel="stylesheet" />
+    <link th:href="@{/styles/css/scrollbar/jquery.mCustomScrollbar.min.css}" rel="stylesheet" />
+    <link th:href="@{/styles/css/jvectormap/jquery-jvectormap-2.0.3.css}" rel="stylesheet" />
+    <link th:href="@{/styles/css/notika-custom-icon.css}" rel="stylesheet" />
+    <link th:href="@{/styles/css/main.css}" rel="stylesheet" />
+    <link th:href="@{/styles/css/wave/waves.min.css}" rel="stylesheet" />
+    <link th:href="@{/styles/css/style.css}" rel="stylesheet" />
+    <link th:href="@{/styles/css/responsive.css}" rel="stylesheet" />
+
+    <script type="text/javascript" th:src="@{/styles/js/vendor/modernizr-2.8.3.min.js}"></script>
+
+
+</head>
+<body>
+    <!-- Header -->
+    <div class="header-top-area">
+        <div class="container">
+            <div class="row" >
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="logo-area">
+                        <img th:src="@{~/imgs/logo5.png}"  alt="waaalao" />
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="header-top-menu">
+                        <div class="bootstrap-select fm-cmp-mg top-buffer">
+                            <select class="selectpicker" data-live-search="true" th:action="@{/country}" name="country">
+                                <option disabled="disabled" selected="selected">Click to track a country </option>
+                                <option >Drama</option>
+                                <option value="mar">Morocco</option>
+                                <option>Cheriska</option>
+                                <option>Malias</option>
+                                <option>Kamines</option>
+                                <option>Austranas</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Global header Or Country Name/flag -->
+        <div class="breadcomb-area top-buffer">
+            <!-- <div class="container"> -->
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="breadcomb-list">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="breadcomb-wp">
+                                    <div class="breadcomb-icon">
+                                                <th:block th:switch="${data.getCountry()}">
+                                                    <div th:case="'Global'">
+                                                        <i class="fa fa-globe" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div th:case="*">
+                                                        <img class="flag" th:src="${data.getCountryInfo().getFlag()}"  alt="" />
+                                                     </div>
+                                        </th:block>
+
+                                    </div>
+                                    <div class="breadcomb-ctn" style="padding-top: 3%">
+                                        <h2><span th:text="${data.getCountry()}"></span></h2>
+                                        <!--<p>Welcome to Notika <span class="bread-ntd">Admin Template</span></p> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
+                                <div class="breadcomb-report">
+                                    <!-- <button data-toggle="tooltip" data-placement="left" title="Download Report" class="btn"><i class="notika-icon notika-sent"></i></button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- </div> -->
+        </div>
+
+
+
+
+        <!-- Status bar for Statistics -->
+        <div class="notika-status-area top-buffer">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+
+                        <div class="website-traffic-ctn col-md-8 col-sm-8 col-xs-8">
+                            <h2 style="color: #01c0c8"><span class="counter"><span th:text="${#numbers.formatDecimal(data.getCases(), 0, 'COMMA', 0, 'POINT')}"></span></span> </h2>
+                            <p class="pbold">Confirmed</p>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4 ">
+                            <i class="fa fa-ambulance" aria-hidden="true"></i>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn col-md-8 col-sm-8 col-xs-8">
+                            <h2 style="color: #e52f48"><span class="counter"><span th:text="${#numbers.formatDecimal(data.getDeaths(), 0, 'COMMA', 0, 'POINT')}"></span></span></h2>
+                            <p class="pbold">Death</p>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4 ">
+                            <i class="fa fa-times"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn col-md-8 col-sm-8 col-xs-8">
+                            <h2 style="color: #00c292"><span class="counter"><span th:text="${#numbers.formatDecimal(data.getRecovered(), 0, 'COMMA', 0, 'POINT')}"></span></span></h2>
+                            <p class="pbold">Recovered</p>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4 ">
+                            <i class="fa fa-smile-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn col-md-8 col-sm-8 col-xs-8">
+                            <h2 style="color: #fd7e14"><span class="counter"><span th:text="${#numbers.formatDecimal(data.getActive(), 0, 'COMMA', 0, 'POINT')}"></span></span></h2>
+                            <p class="pbold">Under Treatement</p>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4 ">
+                            <i class="fa fa-bed" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Status area-->
+
+    </div>
+
+
+
+    <!-- dashboard-->
+    <div class="sale-statistic-area">
+        <div class="container">
+            <div class="row">
+                <!--  Summary Chart -->
+                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+                    <div class="sale-statistic-inner notika-shadow mg-tb-30">
+                        <div class="curved-inner-pro">
+                            <div class="curved-ctn">
+                                <!-- BAR CHART -->
+                                <h2>Chart Summary</h2>
+                                <!-- <p>Vestibulum purus quam scelerisque, mollis nonummy metus</p> -->
+                            </div>
+                        </div>
+                        <!--  <div id="barchart1" class="flot-chart bar-three bar-hm-three"></div> -->
+                        <div class="bar-chart-wp">
+                            <canvas height="140vh" width="180vw" id="barchart1"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <!-- Country Info -->
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mg-tb-30 ">
+                    <div class="sale-statistic-inner notika-shadow">
+                        <div class="email-ctn-round">
+                            <div class="email-rdn-hd">
+                                <h2>Country Statistics</h2>
+                            </div>
+                            <div class="row">
+                                <div class="email-statis-wrap">
+                                    <div class="email-round-nock">
+                                        <input type="text" class="knob" value="0" th:data-rel="${data.getTestRate()}"  data-linecap="round" data-width="130" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true">
+                                    </div>
+                                    <div class="email-ctn-nock">
+                                        <p class="pbold">Test rate</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="email-round-gp">
+                                <div class="email-round-pro">
+                                    <div class="past-statistic-ctn">
+                                        <h3 style="color: #337ab7"><span class="counter"> <span th:text="${#numbers.formatDecimal(data.getPopulation(), 0, 'COMMA', 0, 'POINT')}">1,145,000.52</span></span></h3>
+
+                                        <p class="pbold">Population</p>
+                                    </div>
+                                </div>
+                                <div class="email-round-pro">
+                                    <div class="past-statistic-ctn">
+                                        <h3 style="color: #337ab7"><span class="counter"><span th:text="${#numbers.formatDecimal(data.getTests(), 0, 'COMMA', 0, 'POINT')}"></span></span></h3>
+                                        <p class="pbold">Number of tests</p>
+                                    </div>
+                                </div>
+                                <div class="email-round-pro sm-res-ds-n lg-res-mg-bl">
+                                    <div class="past-statistic-ctn">
+                                        <h3 style="color: #337ab7"><span class="counter"><span th:text="${#numbers.formatDecimal(data.getCasesPerOneMillion(), 0, 'COMMA', 0, 'POINT')}"></span></span></h3>
+                                        <p class="pbold">Cases/Million</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Last Update -->
+                <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12">
+                    <div class="statistic-right-area notika-shadow mg-tb-30 sm-res-mg-t-0">
+                        <div class="past-day-statis">
+                            <h2>Daily Update</h2>
+                            <p></p>
+                            <br>
+                        </div>
+                        <!-- <div class="dash-widget-visits"></div> -->
+                        <div class="past-statistic-an">
+                            <div class="past-statistic-ctn">
+                                <h3 style="color: #337ab7">+<span class="counter"><span th:text="${#numbers.formatDecimal(data.getTodayCases(), 0, 'COMMA', 0, 'POINT')}"></span></span></h3>
+                                <p class="pbold">New Confirmed Cases</p>
+                            </div>
+                            <div class="past-statistic-graph">
+                                <!-- <div class="stats-bar"></div> -->
+                            </div>
+                        </div>
+                        <div class="past-statistic-an">
+                            <div class="past-statistic-ctn">
+                                <h3 style="color: #e52f48">+<span class="counter"><span th:text="${#numbers.formatDecimal(data.getTodayDeaths(), 0, 'COMMA', 0, 'POINT')}"></span></span></h3>
+                                <p class="pbold">New Deaths</p>
+                            </div>
+                            <div class="past-statistic-graph">
+                                <!-- <div class="stats-line"></div> -->
+                            </div>
+                        </div>
+                        <div class="past-statistic-an">
+                            <div class="past-statistic-ctn">
+                                <h3 style="color: #00c292">+<span class="counter"><span th:text="${#numbers.formatDecimal(data.getTodayRecovered(), 0, 'COMMA', 0, 'POINT')}"></span></span></h3>
+                                <p class="pbold">New Recovered Cases</p>
+                            </div>
+                            <div class="past-statistic-graph">
+                                <!-- <div class="stats-bar-2"></div> -->
+                            </div>
+                        </div>
+                        <div class="past-statistic-an">
+                            <div class="past-statistic-ctn">
+                                <h3 style="color: #fd7e14"><span class="counter"><span th:text="${#numbers.formatDecimal(data.getCritical(), 0, 'COMMA', 0, 'POINT')}"></span></span></h3>
+                                <p class="pbold">Critical Cases</p>
+                            </div>
+                            <div class="past-statistic-graph">
+                                <!-- <div class="stats-bar-2"></div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Dashboard-->
+
+
+    <!-- Start Footer area-->
+    <div class="footer-copyright-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="footer-copy-right">
+                        <p>Copyright © 2020 . All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer area-->
+
+
+
+
+<script type="text/javascript" th:src="@{~/styles/js/vendor/jquery-1.12.4.min.js}"></script>
+<!-- bootstrap JS
+    ============================================ -->
+<script type="text/javascript" th:src="@{~/styles/js/bootstrap.min.js}"></script>
+<!-- wow JS
+    ============================================ -->
+<script type="text/javascript" th:src="@{~/styles/js/wow.min.js}"></script>
+<!-- price-slider JS
+    ============================================ -->
+<script  type="text/javascript" th:src="@{~/styles/js/jquery-price-slider.js}"></script>
+<!-- owl.carousel JS
+    ============================================ -->
+<script type="text/javascript" th:src="@{~/styles/js/owl.carousel.min.js}"></script>
+<!-- scrollUp JS
+    ============================================ -->
+<script  type="text/javascript" th:src="@{~/styles/js/jquery.scrollUp.min.js}"></script>
+<!-- meanmenu JS
+    ============================================ -->
+<script th:src="@{~/styles/js/meanmenu/jquery.meanmenu.js}"></script>
+<!-- counterup JS
+    ============================================ -->
+<script th:src="@{~/styles/js/counterup/jquery.counterup.min.js}"></script>
+<script th:src="@{~/styles/js/counterup/waypoints.min.js}"></script>
+<script th:src="@{~/styles/js/counterup/counterup-active.js}"></script>
+<!-- mCustomScrollbar JS
+    ============================================ -->
+<script th:src="@{~/styles/js/scrollbar/jquery.mCustomScrollbar.concat.min.js}"></script>
+<!-- jvectormap JS
+    ============================================ -->
+<script th:src="@{~/s/jvectormap/jquery-jvectormap-world-mill-en.js}"></script>
+<script th:src="@{~/styles/js/jvectormap/jvectormap-active.js}"></script>
+<!-- sparkline JS
+    ============================================ -->
+<script th:src="@{~/styles/js/sparkline/jquery.sparkline.min.js}"></script>
+<script th:src="@{~/styles/js/sparkline/sparkline-active.js}"></script>
+<!-- flot JS
+    ============================================ -->
+<script th:src="@{~/styles/js/flot/jquery.flot.js}"></script>
+<script th:src="@{~/styles/js/flot/jquery.flot.resize.js}"></script>
+<script th:src="@{~/styles/js/flot/jquery.flot.pie.js}"></script>
+<script th:src="@{~/styles/js/flot/jquery.flot.tooltip.min.js}"></script>
+<script th:src="@{~/styles/js/flot/jquery.flot.orderBars.js}"></script>
+<script th:src="@{~/styles/js/flot/curvedLines.js}"></script>
+<script th:src="@{~/styles/js/flot/flot-active.js}"></script>
+<!-- knob JS
+    ============================================ -->
+<script th:src="@{~/styles/js/knob/jquery.knob.js}"></script>
+<script th:src="@{~/styles/js/knob/jquery.appear.js}"></script>
+<script th:src="@{~/styles/js/knob/knob-active.js}"></script>
+<!--  wave JS
+    ============================================ -->
+<script th:src="@{~/styles/js/wave/waves.min.js}"></script>
+<script th:src="@{~/styles/js/wave/wave-active.js}"></script>
+<!--  Chat JS
+    ============================================ -->
+<script th:src="@{~/styles/js/chat/moment.min.js}"></script>
+<script th:src="@{~/styles/js/chat/jquery.chat.js}"></script>
+<!--  todo JS
+    ============================================ -->
+<script th:src="@{~/styles/js/todo/jquery.todo.js}"></script>
+<!-- plugins JS
+    ============================================ -->
+<script th:src="@{~/styles/js/plugins.js}"></script>
+<!-- main JS
+    ============================================ -->
+<script th:src="@{~/styles/js/main.js}"></script>
+<!-- tawk chat JS
+    ============================================ -->
+<!--<script th:src="@{~/styles/js/tawk-chat.js}"></script> -->
+
+
+<!-- Charts JS
+  ============================================ -->
+<script th:src="@{~/styles/js/charts/Chart.js}"></script>
+<script  th:inline="javascript" >
+    var confirmed = /*[[${data.getCases()}]]*/ 0;
+    var recovered = /*[[${data.getRecovered()}]]*/ 0;
+    var death = /*[[${data.getDeaths()}]]*/ 0;
+    (function ($) {
+        "use strict";
+        /*----------------------------------------*/
+        /*  1.  Bar Chart
+        /*----------------------------------------*/
+        Chart.defaults.global.legend.display = false;
+
+        var ctx = document.getElementById("barchart1");
+        var barchart1 = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["Confirmed", "Recovered", "Deaths"],
+                datasets: [{
+                    label: 'Bar Chart',
+                    data: [ confirmed , recovered, death],
+                    backgroundColor: [
+                        'rgb(1,192,200)',
+                        'rgb(0,194,146)',
+                        'rgb(229,47,72)',
+
+                    ],
+                    borderColor: [
+                        'rgb(1,192,200)',
+                        'rgb(0,194,146)',
+                        'rgb(229,47,72)',
+
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+
+
+
+
+    })(jQuery);
+</script>
+
+<script type="text/javascript" th:src="@{~/styles/js/bootstrap-select/bootstrap-select.js}"></script>
+
+
+
+</body>
+</html>

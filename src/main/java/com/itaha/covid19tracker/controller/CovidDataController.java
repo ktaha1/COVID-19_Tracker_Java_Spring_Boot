@@ -16,16 +16,16 @@ public class CovidDataController {
     @GetMapping("/")
     public ModelAndView getAll(){
         ModelAndView mv = new ModelAndView();
-        mv.addObject("global",covidDataService.fetchGlobal());
-        mv.setViewName("global");
+        mv.addObject("data",covidDataService.fetchGlobal());
+        mv.setViewName("display");
         return mv;
     }
 
-    @GetMapping("/{iso3}")
+    @GetMapping("/country/{iso3}")
     public ModelAndView getCountry(@PathVariable("iso3") String iso3){
         ModelAndView mv = new ModelAndView();
-        mv.addObject("country",covidDataService.getCountry(iso3));
-        mv.setViewName("global");
+        mv.addObject("data",covidDataService.getCountry(iso3));
+        mv.setViewName("display");
         return mv;
     }
 }
