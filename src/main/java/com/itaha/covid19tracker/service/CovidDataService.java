@@ -13,16 +13,20 @@ public class CovidDataService {
     @Autowired
     private RestTemplate restTemplate;
 
+    private static String COVID_DATA_GLOBAL_URL="https://disease.sh/v3/covid-19/all";
+    private static String COVID_DATA_COUNTRY_URL="https://disease.sh/v3/covid-19/countries/";
+
+
+    // Fetch data of all countries
     public Country fetchGlobal() {
-        String url = "https://disease.sh/v3/covid-19/all";
-        Country global=restTemplate.getForObject(url, Country.class);
-        global.setCountry("Global");
+        Country global=restTemplate.getForObject(COVID_DATA_GLOBAL_URL, Country.class);
+        global.setCountry("Global");  // set a value that came empty
         return global;
     }
 
+    // Fetch data of a selected country
     public Country getCountry(String iso3){
-        String url = "https://disease.sh/v3/covid-19/countries/"+iso3;
-        Country country = restTemplate.getForObject(url, Country.class);
+        Country country = restTemplate.getForObject(COVID_DATA_COUNTRY_URL+iso3, Country.class);
         return country;
     }
 

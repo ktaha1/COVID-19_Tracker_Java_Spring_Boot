@@ -3,30 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Add CSS and JS to Thymeleaf</title>
-
+    <title>Covid-19 Tracker | Home</title>
     <link th:href="@{https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900}" rel='stylesheet' type='text/css' />
-
     <link th:href="@{/styles/css/bootstrap.min.css}" rel="stylesheet" />
     <link th:href="@{/styles/css/font-awesome.min.css}" rel="stylesheet" />
     <link th:href="@{/styles/css/owl.carousel.css}" rel="stylesheet" />
-
-    <link th:href="@{/styles/css/owl.theme.css}" rel="stylesheet" />
-    <link th:href="@{/styles/css/owl.transitions.css}" rel="stylesheet" />
     <link th:href="@{/styles/css/meanmenu/meanmenu.min.css}" rel="stylesheet" />
     <link th:href="@{/styles/css/animate.css}" rel="stylesheet" />
     <link th:href="@{/styles/css/bootstrap-select/bootstrap-select.css}" rel="stylesheet" />
     <link th:href="@{/styles/css/normalize.css}" rel="stylesheet" />
     <link th:href="@{/styles/css/scrollbar/jquery.mCustomScrollbar.min.css}" rel="stylesheet" />
-    <link th:href="@{/styles/css/jvectormap/jquery-jvectormap-2.0.3.css}" rel="stylesheet" />
-    <link th:href="@{/styles/css/notika-custom-icon.css}" rel="stylesheet" />
     <link th:href="@{/styles/css/main.css}" rel="stylesheet" />
     <link th:href="@{/styles/css/wave/waves.min.css}" rel="stylesheet" />
     <link th:href="@{/styles/css/style.css}" rel="stylesheet" />
     <link th:href="@{/styles/css/responsive.css}" rel="stylesheet" />
-
     <script type="text/javascript" th:src="@{/styles/js/vendor/modernizr-2.8.3.min.js}"></script>
-
 
 </head>
 <body>
@@ -42,15 +33,234 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="header-top-menu">
                         <div class="bootstrap-select fm-cmp-mg top-buffer">
-                            <select class="selectpicker" data-live-search="true" th:action="@{/country}" name="country">
+                            <form action="/covid19tracker/home" name="form1" method="POST">
+                            <select class="selectpicker" data-live-search="true" onchange="document.form1.submit();" name="iso3">
                                 <option disabled="disabled" selected="selected">Click to track a country </option>
-                                <option >Drama</option>
-                                <option value="mar">Morocco</option>
-                                <option>Cheriska</option>
-                                <option>Malias</option>
-                                <option>Kamines</option>
-                                <option>Austranas</option>
+                                <option value="">Global</option>
+                                <option value="AFG">Afghanistan</option>
+                                <option value="ALB">Albania</option>
+                                <option value="DZA">Algeria</option>
+                                <option value="AND">Andorra</option>
+                                <option value="AGO">Angola</option>
+                                <option value="AIA">Anguilla</option>
+                                <option value="ATG">Antigua and Barbuda</option>
+                                <option value="ARG">Argentina</option>
+                                <option value="ARM">Armenia</option>
+                                <option value="ABW">Aruba</option>
+                                <option value="AUS">Australia</option>
+                                <option value="AUT">Austria</option>
+                                <option value="AZE">Azerbaijan</option>
+                                <option value="BHS">Bahamas</option>
+                                <option value="BHR">Bahrain</option>
+                                <option value="BGD">Bangladesh</option>
+                                <option value="BRB">Barbados</option>
+                                <option value="BLR">Belarus</option>
+                                <option value="BEL">Belgium</option>
+                                <option value="BLZ">Belize</option>
+                                <option value="BEN">Benin</option>
+                                <option value="BMU">Bermuda</option>
+                                <option value="BTN">Bhutan</option>
+                                <option value="BOL">Bolivia</option>
+                                <option value="BES">Caribbean Netherlands</option>
+                                <option value="BIH">Bosnia and Herzegovina</option>
+                                <option value="BWA">Botswana</option>
+                                <option value="BVT">Bouvet Island</option>
+                                <option value="BRA">Brazil</option>
+                                <option value="BRN">Brunei Darussalam</option>
+                                <option value="BGR">Bulgaria</option>
+                                <option value="BFA">Burkina Faso</option>
+                                <option value="BDI">Burundi</option>
+                                <option value="KHM">Cambodia</option>
+                                <option value="CMR">Cameroon</option>
+                                <option value="CAN">Canada</option>
+                                <option value="CPV">Cape Verde</option>
+                                <option value="CYM">Cayman Islands</option>
+                                <option value="CAF">Central African Republic</option>
+                                <option value="TCD">Chad</option>
+                                <option value="CHL">Chile</option>
+                                <option value="CHN">China</option>
+                                <option value="COL">Colombia</option>
+                                <option value="COM">Comoros</option>
+                                <option value="COG">Congo</option>
+                                <option value="COD">The Democratic Republic of the Congo</option>
+                                <option value="CRI">Costa Rica</option>
+                                <option value="CIV">Côte d'Ivoire</option>
+                                <option value="HRV">Croatia</option>
+                                <option value="CUB">Cuba</option>
+                                <option value="CUW">Curaçao</option>
+                                <option value="CYP">Cyprus</option>
+                                <option value="CZE">Czech Republic</option>
+                                <option value="DNK">Denmark</option>
+                                <option value="DJI">Djibouti</option>
+                                <option value="DMA">Dominica</option>
+                                <option value="DOM">Dominican Republic</option>
+                                <option value="ECU">Ecuador</option>
+                                <option value="EGY">Egypt</option>
+                                <option value="SLV">El Salvador</option>
+                                <option value="GNQ">Equatorial Guinea</option>
+                                <option value="ERI">Eritrea</option>
+                                <option value="EST">Estonia</option>
+                                <option value="ETH">Ethiopia</option>
+                                <option value="FLK">Falkland Islands (Malvinas)</option>
+                                <option value="FRO">Faroe Islands</option>
+                                <option value="FJI">Fiji</option>
+                                <option value="FIN">Finland</option>
+                                <option value="FRA">France</option>
+                                <option value="GUF">French Guiana</option>
+                                <option value="PYF">French Polynesia</option>
+                                <option value="GAB">Gabon</option>
+                                <option value="GMB">Gambia</option>
+                                <option value="GEO">Georgia</option>
+                                <option value="DEU">Germany</option>
+                                <option value="GHA">Ghana</option>
+                                <option value="GIB">Gibraltar</option>
+                                <option value="GRC">Greece</option>
+                                <option value="GRD">Grenada</option>
+                                <option value="GLP">Guadeloupe</option>
+                                <option value="GTM">Guatemala</option>
+                                <option value="GGY">Guernsey</option>
+                                <option value="GIN">Guinea</option>
+                                <option value="GNB">Guinea-Bissau</option>
+                                <option value="GUY">Guyana</option>
+                                <option value="HTI">Haiti</option>
+                                <option value="VAT">Holy See (Vatican City State)</option>
+                                <option value="HND">Honduras</option>
+                                <option value="HKG">Hong Kong</option>
+                                <option value="HUN">Hungary</option>
+                                <option value="ISL">Iceland</option>
+                                <option value="IND">India</option>
+                                <option value="IDN">Indonesia</option>
+                                <option value="IRN">Islamic Republic of Iran</option>
+                                <option value="IRQ">Iraq</option>
+                                <option value="IRL">Ireland</option>
+                                <option value="IMN">Isle of Man</option>
+                                <option value="ISR">Israel</option>
+                                <option value="ITA">Italy</option>
+                                <option value="JAM">Jamaica</option>
+                                <option value="JPN">Japan</option>
+                                <option value="JEY">Jersey</option>
+                                <option value="JOR">Jordan</option>
+                                <option value="KAZ">Kazakhstan</option>
+                                <option value="KEN">Kenya</option>
+                                <option value="KIR">Kiribati</option>
+                                <option value="KOR">Republic of Korea</option>
+                                <option value="KWT">Kuwait</option>
+                                <option value="KGZ">Kyrgyzstan</option>
+                                <option value="LAO">Lao People's Democratic Republic</option>
+                                <option value="LVA">Latvia</option>
+                                <option value="LBN">Lebanon</option>
+                                <option value="LSO">Lesotho</option>
+                                <option value="LBR">Liberia</option>
+                                <option value="LBY">Libya</option>
+                                <option value="LIE">Liechtenstein</option>
+                                <option value="LTU">Lithuania</option>
+                                <option value="LUX">Luxembourg</option>
+                                <option value="MAC">Macao</option>
+                                <option value="MKD">Macedonia</option>
+                                <option value="MDG">Madagascar</option>
+                                <option value="MWI">Malawi</option>
+                                <option value="MYS">Malaysia</option>
+                                <option value="MDV">Maldives</option>
+                                <option value="MLI">Mali</option>
+                                <option value="MLT">Malta</option>
+                                <option value="MHL">Marshall Islands</option>
+                                <option value="MTQ">Martinique</option>
+                                <option value="MRT">Mauritania</option>
+                                <option value="MUS">Mauritius</option>
+                                <option value="MYT">Mayotte</option>
+                                <option value="MEX">Mexico</option>
+                                <option value="MDA">Republic of Moldova</option>
+                                <option value="MCO">Monaco</option>
+                                <option value="MNG">Mongolia</option>
+                                <option value="MNE">Montenegro</option>
+                                <option value="MSR">Montserrat</option>
+                                <option value="MAR">Morocco</option>
+                                <option value="MOZ">Mozambique</option>
+                                <option value="MMR">Myanmar</option>
+                                <option value="NAM">Namibia</option>
+                                <option value="NRU">Nauru</option>
+                                <option value="NPL">Nepal</option>
+                                <option value="NLD">Netherlands</option>
+                                <option value="NCL">New Caledonia</option>
+                                <option value="NZL">New Zealand</option>
+                                <option value="NIC">Nicaragua</option>
+                                <option value="NER">Niger</option>
+                                <option value="NGA">Nigeria</option>
+                                <option value="MNP">Northern Mariana Islands</option>
+                                <option value="NOR">Norway</option>
+                                <option value="OMN">Oman</option>
+                                <option value="PAK">Pakistan</option>
+                                <option value="PSE">Palestine</option>
+                                <option value="PAN">Panama</option>
+                                <option value="PNG">Papua New Guinea</option>
+                                <option value="PRY">Paraguay</option>
+                                <option value="PER">Peru</option>
+                                <option value="PHL">Philippines</option>
+                                <option value="PCN">Pitcairn</option>
+                                <option value="POL">Poland</option>
+                                <option value="PRT">Portugal</option>
+                                <option value="PRI">Puerto Rico</option>
+                                <option value="QAT">Qatar</option>
+                                <option value="REU">Réunion</option>
+                                <option value="ROU">Romania</option>
+                                <option value="RUS">Russian Federation</option>
+                                <option value="RWA">Rwanda</option>
+                                <option value="BLM">Saint Barthélemy</option>
+                                <option value="KNA">Saint Kitts and Nevis</option>
+                                <option value="LCA">Saint Lucia</option>
+                                <option value="MAF">Saint Martin (French part)</option>
+                                <option value="SPM">Saint Pierre and Miquelon</option>
+                                <option value="VCT">Saint Vincent and the Grenadines</option>
+                                <option value="SMR">San Marino</option>
+                                <option value="STP">Sao Tome and Principe</option>
+                                <option value="SAU">Saudi Arabia</option>
+                                <option value="SEN">Senegal</option>
+                                <option value="SRB">Serbia</option>
+                                <option value="SYC">Seychelles</option>
+                                <option value="SLE">Sierra Leone</option>
+                                <option value="SGP">Singapore</option>
+                                <option value="SXM">Sint Maarten (Dutch part)</option>
+                                <option value="SVK">Slovakia</option>
+                                <option value="SVN">Slovenia</option>
+                                <option value="SOM">Somalia</option>
+                                <option value="ZAF">South Africa</option>
+                                <option value="SSD">South Sudan</option>
+                                <option value="ESP">Spain</option>
+                                <option value="LKA">Sri Lanka</option>
+                                <option value="SDN">Sudan</option>
+                                <option value="SUR">Suriname</option>
+                                <option value="SWZ">Swaziland</option>
+                                <option value="SWE">Sweden</option>
+                                <option value="CHE">Switzerland</option>
+                                <option value="SYR">Syrian Arab Republic</option>
+                                <option value="TWN">Taiwan</option>
+                                <option value="TJK">Tajikistan</option>
+                                <option value="TZA">Tanzania</option>
+                                <option value="THA">Thailand</option>
+                                <option value="TLS">Timor-Leste</option>
+                                <option value="TGO">Togo</option>
+                                <option value="TON">Tonga</option>
+                                <option value="TTO">Trinidad and Tobago</option>
+                                <option value="TUN">Tunisia</option>
+                                <option value="TUR">Turkey</option>
+                                <option value="TKM">Turkmenistan</option>
+                                <option value="TCA">Turks and Caicos Islands</option>
+                                <option value="UGA">Uganda</option>
+                                <option value="UKR">Ukraine</option>
+                                <option value="ARE">United Arab Emirates</option>
+                                <option value="GBR">United Kingdom</option>
+                                <option value="USA">United States</option>
+                                <option value="URY">Uruguay</option>
+                                <option value="UZB">Uzbekistan</option>
+                                <option value="VEN">Venezuela</option>
+                                <option value="VNM">Vietnam</option>
+                                <option value="VGB">British Virgin Islands</option>
+                                <option value="ESH">Western Sahara</option>
+                                <option value="YEM">Yemen</option>
+                                <option value="ZMB">Zambia</option>
+                                <option value="ZWE">Zimbabwe</option>
                             </select>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -59,11 +269,9 @@
     </div>
 
     <div class="container">
-
-        <!-- Global header Or Country Name/flag -->
+        <!-- Name and flag of Global/Country  -->
         <div class="breadcomb-area top-buffer">
-            <!-- <div class="container"> -->
-            <div class="row">
+           <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="breadcomb-list">
                         <div class="row">
@@ -82,26 +290,21 @@
                                     </div>
                                     <div class="breadcomb-ctn" style="padding-top: 3%">
                                         <h2><span th:text="${data.getCountry()}"></span></h2>
-                                        <!--<p>Welcome to Notika <span class="bread-ntd">Admin Template</span></p> -->
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
                                 <div class="breadcomb-report">
-                                    <!-- <button data-toggle="tooltip" data-placement="left" title="Download Report" class="btn"><i class="notika-icon notika-sent"></i></button> -->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- </div> -->
         </div>
+        <!-- End Name and flag of Global/Country  -->
 
-
-
-
-        <!-- Status bar for Statistics -->
+        <!-- Head statistics -->
         <div class="notika-status-area top-buffer">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
@@ -155,13 +358,10 @@
                 </div>
             </div>
         </div>
-        <!-- End Status area-->
+        <!-- End Head statistics -->
+     </div>
 
-    </div>
-
-
-
-    <!-- dashboard-->
+    <!-- dashboard area-->
     <div class="sale-statistic-area">
         <div class="container">
             <div class="row">
@@ -172,16 +372,15 @@
                             <div class="curved-ctn">
                                 <!-- BAR CHART -->
                                 <h2>Chart Summary</h2>
-                                <!-- <p>Vestibulum purus quam scelerisque, mollis nonummy metus</p> -->
                             </div>
                         </div>
-                        <!--  <div id="barchart1" class="flot-chart bar-three bar-hm-three"></div> -->
                         <div class="bar-chart-wp">
                             <canvas height="140vh" width="180vw" id="barchart1"></canvas>
                         </div>
                     </div>
                 </div>
-                <!-- Country Info -->
+                <!--  End Summary Chart -->
+                <!-- Country Statistics -->
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mg-tb-30 ">
                     <div class="sale-statistic-inner notika-shadow">
                         <div class="email-ctn-round">
@@ -223,7 +422,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Last Update -->
+                <!-- End Country Statistics -->
+                <!-- Daily Update -->
                 <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12">
                     <div class="statistic-right-area notika-shadow mg-tb-30 sm-res-mg-t-0">
                         <div class="past-day-statis">
@@ -231,14 +431,12 @@
                             <p></p>
                             <br>
                         </div>
-                        <!-- <div class="dash-widget-visits"></div> -->
                         <div class="past-statistic-an">
                             <div class="past-statistic-ctn">
                                 <h3 style="color: #337ab7">+<span class="counter"><span th:text="${#numbers.formatDecimal(data.getTodayCases(), 0, 'COMMA', 0, 'POINT')}"></span></span></h3>
                                 <p class="pbold">New Confirmed Cases</p>
                             </div>
                             <div class="past-statistic-graph">
-                                <!-- <div class="stats-bar"></div> -->
                             </div>
                         </div>
                         <div class="past-statistic-an">
@@ -247,7 +445,6 @@
                                 <p class="pbold">New Deaths</p>
                             </div>
                             <div class="past-statistic-graph">
-                                <!-- <div class="stats-line"></div> -->
                             </div>
                         </div>
                         <div class="past-statistic-an">
@@ -256,7 +453,6 @@
                                 <p class="pbold">New Recovered Cases</p>
                             </div>
                             <div class="past-statistic-graph">
-                                <!-- <div class="stats-bar-2"></div> -->
                             </div>
                         </div>
                         <div class="past-statistic-an">
@@ -265,17 +461,15 @@
                                 <p class="pbold">Critical Cases</p>
                             </div>
                             <div class="past-statistic-graph">
-                                <!-- <div class="stats-bar-2"></div> -->
                             </div>
                         </div>
                     </div>
                 </div>
-
+                <!-- End Daily Update -->
             </div>
         </div>
     </div>
-    <!-- End Dashboard-->
-
+    <!-- End Dashboard area-->
 
     <!-- Start Footer area-->
     <div class="footer-copyright-area">
@@ -292,8 +486,6 @@
     <!-- End Footer area-->
 
 
-
-
 <script type="text/javascript" th:src="@{~/styles/js/vendor/jquery-1.12.4.min.js}"></script>
 <!-- bootstrap JS
     ============================================ -->
@@ -301,15 +493,7 @@
 <!-- wow JS
     ============================================ -->
 <script type="text/javascript" th:src="@{~/styles/js/wow.min.js}"></script>
-<!-- price-slider JS
-    ============================================ -->
-<script  type="text/javascript" th:src="@{~/styles/js/jquery-price-slider.js}"></script>
-<!-- owl.carousel JS
-    ============================================ -->
-<script type="text/javascript" th:src="@{~/styles/js/owl.carousel.min.js}"></script>
-<!-- scrollUp JS
-    ============================================ -->
-<script  type="text/javascript" th:src="@{~/styles/js/jquery.scrollUp.min.js}"></script>
+
 <!-- meanmenu JS
     ============================================ -->
 <script th:src="@{~/styles/js/meanmenu/jquery.meanmenu.js}"></script>
@@ -321,52 +505,24 @@
 <!-- mCustomScrollbar JS
     ============================================ -->
 <script th:src="@{~/styles/js/scrollbar/jquery.mCustomScrollbar.concat.min.js}"></script>
-<!-- jvectormap JS
-    ============================================ -->
-<script th:src="@{~/s/jvectormap/jquery-jvectormap-world-mill-en.js}"></script>
-<script th:src="@{~/styles/js/jvectormap/jvectormap-active.js}"></script>
-<!-- sparkline JS
-    ============================================ -->
-<script th:src="@{~/styles/js/sparkline/jquery.sparkline.min.js}"></script>
-<script th:src="@{~/styles/js/sparkline/sparkline-active.js}"></script>
-<!-- flot JS
-    ============================================ -->
-<script th:src="@{~/styles/js/flot/jquery.flot.js}"></script>
-<script th:src="@{~/styles/js/flot/jquery.flot.resize.js}"></script>
-<script th:src="@{~/styles/js/flot/jquery.flot.pie.js}"></script>
-<script th:src="@{~/styles/js/flot/jquery.flot.tooltip.min.js}"></script>
-<script th:src="@{~/styles/js/flot/jquery.flot.orderBars.js}"></script>
-<script th:src="@{~/styles/js/flot/curvedLines.js}"></script>
-<script th:src="@{~/styles/js/flot/flot-active.js}"></script>
+
 <!-- knob JS
     ============================================ -->
 <script th:src="@{~/styles/js/knob/jquery.knob.js}"></script>
 <script th:src="@{~/styles/js/knob/jquery.appear.js}"></script>
 <script th:src="@{~/styles/js/knob/knob-active.js}"></script>
-<!--  wave JS
-    ============================================ -->
-<script th:src="@{~/styles/js/wave/waves.min.js}"></script>
-<script th:src="@{~/styles/js/wave/wave-active.js}"></script>
-<!--  Chat JS
-    ============================================ -->
-<script th:src="@{~/styles/js/chat/moment.min.js}"></script>
-<script th:src="@{~/styles/js/chat/jquery.chat.js}"></script>
-<!--  todo JS
-    ============================================ -->
-<script th:src="@{~/styles/js/todo/jquery.todo.js}"></script>
-<!-- plugins JS
-    ============================================ -->
-<script th:src="@{~/styles/js/plugins.js}"></script>
+
 <!-- main JS
     ============================================ -->
 <script th:src="@{~/styles/js/main.js}"></script>
-<!-- tawk chat JS
+
+    <!--Select bootstrap
     ============================================ -->
-<!--<script th:src="@{~/styles/js/tawk-chat.js}"></script> -->
+<script type="text/javascript" th:src="@{~/styles/js/bootstrap-select/bootstrap-select.js}"></script>
 
 
-<!-- Charts JS
-  ============================================ -->
+    <!-- Charts JS
+      ============================================ -->
 <script th:src="@{~/styles/js/charts/Chart.js}"></script>
 <script  th:inline="javascript" >
     var confirmed = /*[[${data.getCases()}]]*/ 0;
@@ -413,15 +569,8 @@
             }
         });
 
-
-
-
     })(jQuery);
 </script>
-
-<script type="text/javascript" th:src="@{~/styles/js/bootstrap-select/bootstrap-select.js}"></script>
-
-
 
 </body>
 </html>

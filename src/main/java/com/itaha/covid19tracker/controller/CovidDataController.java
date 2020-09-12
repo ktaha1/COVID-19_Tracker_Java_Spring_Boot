@@ -7,25 +7,22 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/myapp")
+@RequestMapping("/covid19tracker")
 public class CovidDataController {
 
    @Autowired
     private CovidDataService covidDataService;
 
-    @GetMapping("/")
-    public ModelAndView getAll(){
+    @RequestMapping("/home")
+    public ModelAndView getAll(@RequestParam(required = false) String iso3){
         ModelAndView mv = new ModelAndView();
-        mv.addObject("data",covidDataService.fetchGlobal());
+        if(iso3==null || iso3=="")
+            mv.addObject("data",covidDataService.fetchGlobal());
+        else
+            mv.addObject("data",covidDataService.getCountry(iso3));
         mv.setViewName("display");
         return mv;
     }
 
-    @GetMapping("/country/{iso3}")
-    public ModelAndView getCountry(@PathVariable("iso3") String iso3){
-        ModelAndView mv = new ModelAndView();
-        mv.addObject("data",covidDataService.getCountry(iso3));
-        mv.setViewName("display");
-        return mv;
-    }
+
 }
