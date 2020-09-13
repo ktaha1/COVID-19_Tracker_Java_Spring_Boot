@@ -17,7 +17,7 @@ public class CovidDataController {
     public ModelAndView getAll(@RequestParam(required = false) String iso3){
         ModelAndView mv = new ModelAndView();
         if(iso3==null || iso3=="")
-            mv.addObject("data",covidDataService.fetchGlobal());
+            mv.addObject("data",covidDataService.getGlobalData());
         else
             mv.addObject("data",covidDataService.getCountry(iso3));
         mv.setViewName("display");
