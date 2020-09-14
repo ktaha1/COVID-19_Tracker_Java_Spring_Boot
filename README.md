@@ -9,7 +9,7 @@ COVID-19 Tracker is a web interactive, animated dashboard for tracking the COVID
 disease.sh - Open API for Data Disease.
 
 ### Requirement
-JDK 12 or later
+JDK 12 or later <br>
 Spring Boot 2.3.3.RELEASE
 
 ### Setup
