@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/covid19tracker")
+@RequestMapping("/")
 public class CovidDataController {
 
    @Autowired
     private CovidDataService covidDataService;
 
-    @RequestMapping("/home")
+    @RequestMapping("/")
     public ModelAndView getAll(@RequestParam(required = false) String iso3){
         ModelAndView mv = new ModelAndView();
         if(iso3==null || iso3=="")
